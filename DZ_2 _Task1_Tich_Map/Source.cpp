@@ -1,4 +1,4 @@
-#include<map>
+п»ї#include<map>
 #include<cstdint>
 #include<vector>
 #include<cstring>
@@ -8,15 +8,15 @@ class Person
 {
 private:
 	const char* _fio = nullptr;
-	uint16_t _age = -1;// Не валидное
+	uint16_t _age = -1;// РќРµ РІР°Р»РёРґРЅРѕРµ
 public:
 	Person(const char* fio, uint16_t age) : _age{ age }
 	{
-		_fio = new char[strlen(fio)];// Выделяем память по поле _fio
-		_fio = fio; // Помещаем значение аргумента в поле
+		_fio = new char[strlen(fio)];// Р’С‹РґРµР»СЏРµРј РїР°РјСЏС‚СЊ РїРѕ РїРѕР»Рµ _fio
+		_fio = fio; // РџРѕРјРµС‰Р°РµРј Р·РЅР°С‡РµРЅРёРµ Р°СЂРіСѓРјРµРЅС‚Р° РІ РїРѕР»Рµ
 	}
 
-	Person(Person& person) // Принимает объект и копирует значения его полей в свои поля (Нужен если надо 2 объекта дублей)
+	Person(Person& person) // РџСЂРёРЅРёРјР°РµС‚ РѕР±СЉРµРєС‚ Рё РєРѕРїРёСЂСѓРµС‚ Р·РЅР°С‡РµРЅРёСЏ РµРіРѕ РїРѕР»РµР№ РІ СЃРІРѕРё РїРѕР»СЏ (РќСѓР¶РµРЅ РµСЃР»Рё РЅР°РґРѕ 2 РѕР±СЉРµРєС‚Р° РґСѓР±Р»РµР№)
 	{
 		_fio = person._fio;
 		_age = person._age;
@@ -30,7 +30,7 @@ public:
 	~Person() 
 	{ 
 		delete[] _fio;
-	}// Освобождаем выделеную память
+	}// РћСЃРІРѕР±РѕР¶РґР°РµРј РІС‹РґРµР»РµРЅСѓСЋ РїР°РјСЏС‚СЊ
 };
 //Person person1("Jake", 20);
 //
@@ -46,19 +46,19 @@ public:
 
 	Flat(Flat& flat)
 	{
-		this->_people = flat._people;// this это то, что вызывает функцию  Flat E(Person A);  this это  E
-		// в this храниться объект, который вызвал функцию.
+		this->_people = flat._people;// this СЌС‚Рѕ С‚Рѕ, С‡С‚Рѕ РІС‹Р·С‹РІР°РµС‚ С„СѓРЅРєС†РёСЋ  Flat E(Person A);  this СЌС‚Рѕ  E
+		// РІ this С…СЂР°РЅРёС‚СЊСЃСЏ РѕР±СЉРµРєС‚, РєРѕС‚РѕСЂС‹Р№ РІС‹Р·РІР°Р» С„СѓРЅРєС†РёСЋ.
 	}
 
-	void AddPerson(Person* person)// Она принимает в себя объект класса Person
+	void AddPerson(Person* person)// РћРЅР° РїСЂРёРЅРёРјР°РµС‚ РІ СЃРµР±СЏ РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° Person
 	{
-		_people.push_back(person);// Кладем в себя Адрес ссылки &person . 
-		// Берем ячейку памяти и кладем в нашь вектор Так как  у нас вектор по указателю <Person*>. 
+		_people.push_back(person);// РљР»Р°РґРµРј РІ СЃРµР±СЏ РђРґСЂРµСЃ СЃСЃС‹Р»РєРё &person . 
+		// Р‘РµСЂРµРј СЏС‡РµР№РєСѓ РїР°РјСЏС‚Рё Рё РєР»Р°РґРµРј РІ РЅР°С€СЊ РІРµРєС‚РѕСЂ РўР°Рє РєР°Рє  Сѓ РЅР°СЃ РІРµРєС‚РѕСЂ РїРѕ СѓРєР°Р·Р°С‚РµР»СЋ <Person*>. 
 	}
 	
 	void ShowPeople()
 	{
-		for (const auto& person : _people)// В person храниться объект класса Person  и мы вызываем метод Print 
+		for (const auto& person : _people)// Р’ person С…СЂР°РЅРёС‚СЊСЃСЏ РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° Person  Рё РјС‹ РІС‹Р·С‹РІР°РµРј РјРµС‚РѕРґ Print 
 			person->Print();
 	}
 };
@@ -66,34 +66,34 @@ public:
 class House
 {
 private:
-	std::map<uint16_t, Flat*>_flats;//Ключь uint16_t - номер квартиры будет Рандомным  
+	std::map<uint16_t, Flat*>_flats;//РљР»СЋС‡СЊ uint16_t - РЅРѕРјРµСЂ РєРІР°СЂС‚РёСЂС‹ Р±СѓРґРµС‚ Р Р°РЅРґРѕРјРЅС‹Рј  
 public:
 	House(){}
 
 	House(House& house)
 	{
-		this->_flats = house._flats;//_flats присваиваем значение поля _flats у аргумента конструктора(house)
+		this->_flats = house._flats;//_flats РїСЂРёСЃРІР°РёРІР°РµРј Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЏ _flats Сѓ Р°СЂРіСѓРјРµРЅС‚Р° РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°(house)
 	}
 
-	//static void Foo(); - Статик используем тогда когда к функции можем обращаться не создавая объект класса House.Foo()/House::Foo();
+	//static void Foo(); - РЎС‚Р°С‚РёРє РёСЃРїРѕР»СЊР·СѓРµРј С‚РѕРіРґР° РєРѕРіРґР° Рє С„СѓРЅРєС†РёРё РјРѕР¶РµРј РѕР±СЂР°С‰Р°С‚СЊСЃСЏ РЅРµ СЃРѕР·РґР°РІР°СЏ РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° House.Foo()/House::Foo();
 
 	void AddFlat(Flat& flat)
 	{
-		// const_iterator пишем const так какон не будетменять значение в контейнере map (на который указывает)
-		std::map<uint16_t, Flat*>::const_iterator it = _flats.begin();// Создаем итераторна map и присваиваем невалидное значение .end()
+		// const_iterator РїРёС€РµРј const С‚Р°Рє РєР°РєРѕРЅ РЅРµ Р±СѓРґРµС‚РјРµРЅСЏС‚СЊ Р·РЅР°С‡РµРЅРёРµ РІ РєРѕРЅС‚РµР№РЅРµСЂРµ map (РЅР° РєРѕС‚РѕСЂС‹Р№ СѓРєР°Р·С‹РІР°РµС‚)
+		std::map<uint16_t, Flat*>::const_iterator it = _flats.begin();// РЎРѕР·РґР°РµРј РёС‚РµСЂР°С‚РѕСЂРЅР° map Рё РїСЂРёСЃРІР°РёРІР°РµРј РЅРµРІР°Р»РёРґРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ .end()
 
 		uint16_t random_flats_number;
 
 		while (it != _flats.end())
 		{
-			random_flats_number = 0 + std::rand() % 101; //Получаем случайный номер квартиры (Включительно  % 101)
+			random_flats_number = 0 + std::rand() % 101; //РџРѕР»СѓС‡Р°РµРј СЃР»СѓС‡Р°Р№РЅС‹Р№ РЅРѕРјРµСЂ РєРІР°СЂС‚РёСЂС‹ (Р’РєР»СЋС‡РёС‚РµР»СЊРЅРѕ  % 101)
 
-			it = _flats.find(random_flats_number); // Проверяем есть ли в map данное значение random_flats_number 
+			it = _flats.find(random_flats_number); // РџСЂРѕРІРµСЂСЏРµРј РµСЃС‚СЊ Р»Рё РІ map РґР°РЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ random_flats_number 
 		}
 
-		_flats.insert(std::make_pair(random_flats_number, &flat));// std::make_pair(std::rand() - это рандомное добавление Номера квартиры
-		// Квартире присваивается рандомный номер (Является ключем в map )
-		//AddFlat(flat);	// Иначе вызываем рекурсию до тех пор пока не найдем уникальное значение!!
+		_flats.insert(std::make_pair(random_flats_number, &flat));// std::make_pair(std::rand() - СЌС‚Рѕ СЂР°РЅРґРѕРјРЅРѕРµ РґРѕР±Р°РІР»РµРЅРёРµ РќРѕРјРµСЂР° РєРІР°СЂС‚РёСЂС‹
+		// РљРІР°СЂС‚РёСЂРµ РїСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ СЂР°РЅРґРѕРјРЅС‹Р№ РЅРѕРјРµСЂ (РЇРІР»СЏРµС‚СЃСЏ РєР»СЋС‡РµРј РІ map )
+		//AddFlat(flat);	// РРЅР°С‡Рµ РІС‹Р·С‹РІР°РµРј СЂРµРєСѓСЂСЃРёСЋ РґРѕ С‚РµС… РїРѕСЂ РїРѕРєР° РЅРµ РЅР°Р№РґРµРј СѓРЅРёРєР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ!!
 	}
 
 	void ShouHouse()
@@ -109,10 +109,10 @@ public:
 		
 		//for(const auto flat = _flats.begin(); flat != _flats.end(); ++flat)
 		//for range-based
-		for (const auto& flat : _flats) //Бежим по значениям поля _flats (Нашего map)
+		for (const auto& flat : _flats) //Р‘РµР¶РёРј РїРѕ Р·РЅР°С‡РµРЅРёСЏРј РїРѕР»СЏ _flats (РќР°С€РµРіРѕ map)
 		{
-			std::cout << "Flat number " << flat.first << ": \n";// first это ключь для map - ромер квартиры
-			flat.second->ShowPeople();// second это значение в map  Обращаемся к значению(квартира)  и вызываем метод ShowPeople()
+			std::cout << "Flat number " << flat.first << ": \n";// first СЌС‚Рѕ РєР»СЋС‡СЊ РґР»СЏ map - СЂРѕРјРµСЂ РєРІР°СЂС‚РёСЂС‹
+			flat.second->ShowPeople();// second СЌС‚Рѕ Р·РЅР°С‡РµРЅРёРµ РІ map  РћР±СЂР°С‰Р°РµРјСЃСЏ Рє Р·РЅР°С‡РµРЅРёСЋ(РєРІР°СЂС‚РёСЂР°)  Рё РІС‹Р·С‹РІР°РµРј РјРµС‚РѕРґ ShowPeople()
 		}
 	}
 };
@@ -120,16 +120,16 @@ public:
 
 int main()
 {
-	// Создали объекты класса Person  (людей)
+	// РЎРѕР·РґР°Р»Рё РѕР±СЉРµРєС‚С‹ РєР»Р°СЃСЃР° Person  (Р»СЋРґРµР№)
 	/*std::string name = "Ivanov";
 	std::string name2 = "Sidorov";
 	std::string name3 = "Petrov";*/
 	Person person("Ivanov", 30);
 	Person person2("Sidorov", 20);
 	Person person3("Petrov", 40);
-	// Создаем объект класса Flat (Квартиру)
+	// РЎРѕР·РґР°РµРј РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° Flat (РљРІР°СЂС‚РёСЂСѓ)
 	Flat flat;
-	// Добавляем в квартиру  созданных людей 
+	// Р”РѕР±Р°РІР»СЏРµРј РІ РєРІР°СЂС‚РёСЂСѓ  СЃРѕР·РґР°РЅРЅС‹С… Р»СЋРґРµР№ 
 	flat.AddPerson(&person);
 	flat.AddPerson(&person2);
 	flat.AddPerson(&person3);
